@@ -16,7 +16,7 @@ def search_models(filename, max_price):
         reader = csv.DictReader(file)
         for row in reader:
             if int(row['Price_PHP']) < max_price:
-                results.append({'brand': row['Brand'], 'model': row['Model']})
+                results.append({'brand': row['Brand'], 'model': row['Model'], 'price' : row['Price_PHP']})
     return results
 
 def get_csv():
