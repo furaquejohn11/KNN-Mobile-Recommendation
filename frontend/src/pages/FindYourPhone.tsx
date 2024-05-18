@@ -38,7 +38,7 @@ const FindYourPhone: React.FC = () => {
   }, [display, ram, storage, battery, budget]);
 
   return (
-    <div className="px-6">
+    <div className="px-6 bg-gray-100">
       <NavBar />
       <h2>{`Recommended Phones for ${display} inch, ${ram} ram, ${storage} GB, ${battery} mAh, with the budget of PHP ${budget} :`}</h2>
       {/* <ul>

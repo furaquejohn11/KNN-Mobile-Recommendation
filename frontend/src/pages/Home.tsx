@@ -1,13 +1,7 @@
-// import { MdOutlinePhoneIphone } from "react-icons/md"
-
-import DeviceCard from "../cards/DeviceCard"
-// import FeaturedCard from "../cards/FeaturedCard"
-// import Test from "./pages/Test"
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NavBar from "../components/NavBar";
-import DiscoverCard from "../cards/DiscoverCard";
+import DeviceCard from "../cards/DeviceCard";
 
 interface Specs {
   Brand: string;
@@ -15,8 +9,7 @@ interface Specs {
   Price_PHP: number;
 }
 
-
-const Home: React.FC = () =>{
+const Home: React.FC = () => {
   const [devices, setDevices] = useState<Specs[]>([]);
 
   useEffect(() => {
@@ -30,45 +23,42 @@ const Home: React.FC = () =>{
       });
   }, []);
 
+  const brandList = Array.from(new Set(devices.map(phone => phone.Brand)));
 
   return (
-    <div className=" grid grid-rows-[auto,auto] bg-custom-white">
-      {/* <header className=" h-20 bg-mainColor text-white flex items-center px-6">
-        <span className="text-2xl"><MdOutlinePhoneIphone /></span>
-        <h1 className="text-2xl font-semibold"> Mobile Device Shop</h1>
-        
-      </header> */}
+    <div className="grid grid-rows-[auto,auto] bg-custom-white">
       <header>
         <NavBar />
       </header>
 
-      <main className="px-6">
-        <section className="mb-4">
-          <h2 className="mb-4 text-2xl font-semibold">Featured Devices</h2>
-          <div className="flex flex-wrap gap-4">
-
-              {/* <FeaturedCard name="iPhone 12" screen="6.1-inch Super Retina XDR display"/>
-              <FeaturedCard name="Samsung Galaxy S21" screen="6.2-inch Dynamic AMOLED 2X display"/> */}
-              {devices.map((phone, index) => (
+      <main className="px-6 bg-gray-100">
+        {brandList.map((brand, index) => (
+          <section key={index}>
+            <h2 className="mb-4 text-2xl font-semibold">{brand}</h2>
+            <div className="flex flex-wrap gap-4">
+              {devices
+                .filter(phone => phone.Brand === brand)
+                .map((phone, index) => (
                   <DeviceCard id={index} brand={phone.Brand} model={phone.Model} price={phone.Price_PHP} />
+                ))}
+            </div>
+          </section>
+        ))}
+
+        {/* Section for devices with brands not in brandList */}
+        {/* <section>
+          <h2 className="mb-4 text-2xl font-semibold">Other Devices</h2>
+          <div className="flex flex-wrap gap-4">
+            {devices
+              .filter(phone => !brandList.includes(phone.Brand))
+              .map((phone, index) => (
+                <DeviceCard id={index} brand={phone.Brand} model={phone.Model} price={phone.Price_PHP} />
               ))}
-                      
-
           </div>
-        </section>
-
-
-        <section>
-          <h2 className="mb-4 text-2xl font-semibold">All Devices</h2>
-          <div className="flex flex-wrap gap-4">          
-              <DiscoverCard />
-          </div>
-        </section>
+        </section> */}
       </main>
-      {/* <Test /> */}
-      
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
