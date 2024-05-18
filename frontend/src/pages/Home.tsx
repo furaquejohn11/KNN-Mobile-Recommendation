@@ -7,6 +7,7 @@ import FeaturedCard from "../cards/FeaturedCard"
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NavBar from "../components/NavBar";
+import DiscoverCard from "../cards/DiscoverCard";
 
 interface Message {
   brand: string;
@@ -29,6 +30,7 @@ const Home: React.FC = () =>{
       });
   }, []);
 
+
   return (
     <div className=" grid grid-rows-[auto,auto] bg-custom-white">
       {/* <header className=" h-20 bg-mainColor text-white flex items-center px-6">
@@ -40,7 +42,7 @@ const Home: React.FC = () =>{
         <NavBar />
       </header>
 
-      <form action="">
+      {/* <form action="">
       <label className="block font-bold mb-2" htmlFor="camera">
                   Camera
                 </label>
@@ -50,7 +52,17 @@ const Home: React.FC = () =>{
                   placeholder="Enter camera megapixels"
                   type="number"
                 />
-      </form>
+      </form> */}
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      <dialog id="my_modal_2" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello!</h3>
+          <p className="py-4">Press ESC key or click outside to close</p>
+        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
 
       <main className="px-6">
         <section className="mb-4">
@@ -80,7 +92,8 @@ const Home: React.FC = () =>{
               <DeviceCard />
               <DeviceCard />
               <DeviceCard />
-              <DeviceCard />
+             
+              <DiscoverCard />
           </div>
         </section>
       </main>
