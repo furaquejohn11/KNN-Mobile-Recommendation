@@ -2,7 +2,8 @@ import { useLocation } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import axios from 'axios';
 import { useState, useEffect } from "react";
-import MobileCard from "../cards/MobileCard";
+// import MobileCard from "../cards/MobileCard";
+import DeviceCard from "../cards/DeviceCard";
 
 interface Specs {
   Brand: string;
@@ -47,7 +48,7 @@ const FindYourPhone: React.FC = () => {
       </ul> */}
       <main className=" flex flex-wrap gap-4">
         {recommendedPhones.map((phone, index) => (
-          <MobileCard id={index} brand={phone.Brand} model={phone.Model} price={phone.Price_PHP} />
+          <DeviceCard id={index} brand={phone.Brand} model={phone.Model} price={phone.Price_PHP} />
         ))}
       </main>
     </div>

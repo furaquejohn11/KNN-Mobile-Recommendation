@@ -75,7 +75,7 @@ const NavBar = () => {
                     <input
                         className="border rounded-lg py-2 px-4 w-full"
                         id="camera"
-                        placeholder="Enter camera megapixels"
+                        placeholder="Enter RAM in GB"
                         type="number"
                         value={ram}
                         onChange={(e) => setRam(e.target.value)}
@@ -86,7 +86,7 @@ const NavBar = () => {
                     <input
                         className="border rounded-lg py-2 px-4 w-full"
                         id="camera"
-                        placeholder="Enter camera megapixels"
+                        placeholder="Enter storage in GB"
                         type="number"
                         value={storage}
                         onChange={(e) => setStorage(e.target.value)}
@@ -97,7 +97,7 @@ const NavBar = () => {
                     <input
                         className="border rounded-lg py-2 px-4 w-full"
                         id="camera"
-                        placeholder="Enter camera megapixels"
+                        placeholder="Enter Battery in mAh"
                         type="number"
                         value={battery}
                         onChange={(e)=> setBattery(e.target.value)}
@@ -108,7 +108,7 @@ const NavBar = () => {
                     <input
                         className="border rounded-lg py-2 px-4 w-full"
                         id="camera"
-                        placeholder="Enter camera megapixels"
+                        placeholder="Enter budget in PHP"
                         type="number"
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}

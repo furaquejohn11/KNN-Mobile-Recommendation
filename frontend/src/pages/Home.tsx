@@ -1,7 +1,7 @@
 // import { MdOutlinePhoneIphone } from "react-icons/md"
 
 import DeviceCard from "../cards/DeviceCard"
-import FeaturedCard from "../cards/FeaturedCard"
+// import FeaturedCard from "../cards/FeaturedCard"
 // import Test from "./pages/Test"
 
 import React, { useEffect, useState } from 'react';
@@ -9,21 +9,21 @@ import axios from 'axios';
 import NavBar from "../components/NavBar";
 import DiscoverCard from "../cards/DiscoverCard";
 
-interface Message {
-  brand: string;
-  model: string;
-  price: string;
+interface Specs {
+  Brand: string;
+  Model: string;
+  Price_PHP: number;
 }
 
 
 const Home: React.FC = () =>{
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [devices, setDevices] = useState<Specs[]>([]);
 
   useEffect(() => {
     axios
-      .get<Message[]>('http://127.0.0.1:5000/api/data')
+      .get<Specs[]>('http://127.0.0.1:5000/api/data')
       .then((response) => {
-        setMessages(response.data);
+        setDevices(response.data);
       })
       .catch((error) => {
         console.error('There was an error fetching the data!', error);
@@ -42,41 +42,17 @@ const Home: React.FC = () =>{
         <NavBar />
       </header>
 
-      {/* <form action="">
-      <label className="block font-bold mb-2" htmlFor="camera">
-                  Camera
-                </label>
-                <input
-                  className="border rounded-lg py-2 px-4 w-full"
-                  id="camera"
-                  placeholder="Enter camera megapixels"
-                  type="number"
-                />
-      </form> */}
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <dialog id="my_modal_2" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">Press ESC key or click outside to close</p>
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
-
       <main className="px-6">
         <section className="mb-4">
           <h2 className="mb-4 text-2xl font-semibold">Featured Devices</h2>
           <div className="flex flex-wrap gap-4">
+
               {/* <FeaturedCard name="iPhone 12" screen="6.1-inch Super Retina XDR display"/>
               <FeaturedCard name="Samsung Galaxy S21" screen="6.2-inch Dynamic AMOLED 2X display"/> */}
-              {messages.map((message) => (
-                <FeaturedCard name={`${message.brand} ${message.model}`} screen={`₱ ${message.price}`} />
-              // <tr key={index}>
-              //   <td>{message.brand}</td>
-              //   <td></td>
-              // </tr>
-            ))}
+              {devices.map((phone, index) => (
+                  <DeviceCard id={index} brand={phone.Brand} model={phone.Model} price={phone.Price_PHP} />
+              ))}
+                      
 
           </div>
         </section>
@@ -84,15 +60,7 @@ const Home: React.FC = () =>{
 
         <section>
           <h2 className="mb-4 text-2xl font-semibold">All Devices</h2>
-          <div className="flex flex-wrap gap-4">
-              <DeviceCard />
-              <DeviceCard />
-              <DeviceCard />
-              <DeviceCard />
-              <DeviceCard />
-              <DeviceCard />
-              <DeviceCard />
-             
+          <div className="flex flex-wrap gap-4">          
               <DiscoverCard />
           </div>
         </section>
