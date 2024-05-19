@@ -4,9 +4,14 @@ import NavBar from "../components/NavBar";
 import DeviceCard from "../cards/DeviceCard";
 
 interface Specs {
-  Brand: string;
-  Model: string;
-  Price_PHP: number;
+  Brand: string,
+  Model: string,
+  Price_PHP: number,
+  Img_Link: string,
+  Display_Spec: string,
+  RAM_GB : number,
+  Storage_GB : number,
+  Battery_mAh : number,
 }
 
 const Home: React.FC = () => {
@@ -39,7 +44,15 @@ const Home: React.FC = () => {
               {devices
                 .filter(phone => phone.Brand === brand)
                 .map((phone, index) => (
-                  <DeviceCard id={index} brand={phone.Brand} model={phone.Model} price={phone.Price_PHP} />
+                  <DeviceCard id={index} 
+                              brand={phone.Brand} 
+                              model={phone.Model} 
+                              price={phone.Price_PHP} 
+                              img={phone.Img_Link}
+                              displaySpec={phone.Display_Spec}
+                              ram={phone.RAM_GB}
+                              storage={phone.Storage_GB}
+                              battery={phone.Battery_mAh} />
                 ))}
             </div>
           </section>

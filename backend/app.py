@@ -18,7 +18,14 @@ def view_all_models():
     with open(filename, mode='r', newline='') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            results.append({'Brand': row['Brand'], 'Model': row['Model'], 'Price_PHP': row['Price_PHP']})
+            results.append({'Brand': row['Brand'], 
+                            'Model': row['Model'], 
+                            'Price_PHP': row['Price_PHP'], 
+                            'Img_Link' : row['Img_Link'],
+                            'Display_Spec' : row['Display_Spec'],
+                            'RAM_GB' : row['RAM_GB'],
+                            'Storage_GB' : row['Storage_GB'],
+                            'Battery_mAh': row['Battery_mAh'] })
     return results
 
 

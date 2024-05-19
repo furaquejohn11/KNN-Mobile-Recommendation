@@ -33,5 +33,7 @@ def recommend_phones(user_input, k=5):
     distances, indices = knn.kneighbors(user_input_scaled)
     budget = user_input[4]
     recommended_phones = data.iloc[indices[0][:k]].reset_index(drop=True)
-    recommended_phones = recommended_phones[recommended_phones['Price_PHP'] <= budget][['Brand', 'Model', 'Price_PHP']]
+    recommended_phones = recommended_phones[recommended_phones['Price_PHP'] <= budget][['Brand', 'Model', 'Price_PHP', 
+                                                                                        'Img_Link', 'Display_Spec', 'RAM_GB',
+                                                                                        'Storage_GB','Battery_mAh']]
     return recommended_phones

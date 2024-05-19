@@ -6,10 +6,16 @@ import { useState, useEffect } from "react";
 import DeviceCard from "../cards/DeviceCard";
 
 interface Specs {
-  Brand: string;
-  Model: string;
-  Price_PHP: number;
+  Brand: string,
+  Model: string,
+  Price_PHP: number,
+  Img_Link: string,
+  Display_Spec: string,
+  RAM_GB : number,
+  Storage_GB : number,
+  Battery_mAh : number,
 }
+
 
 const FindYourPhone: React.FC = () => {
   const [recommendedPhones, setRecommendedPhones] = useState<Specs[]>([]);
@@ -38,18 +44,31 @@ const FindYourPhone: React.FC = () => {
   }, [display, ram, storage, battery, budget]);
 
   return (
-    <div className="px-6 bg-gray-100">
+    <div className=" bg-gray-100">
       <NavBar />
-      <h2>{`Recommended Phones for ${display} inch, ${ram} ram, ${storage} GB, ${battery} mAh, with the budget of PHP ${budget} :`}</h2>
+      <h2 className="px-6">{`Recommended Phones for ${display} inch, ${ram} ram, ${storage} GB, ${battery} mAh, with the budget of PHP ${budget} :`}</h2>
       {/* <ul>
         {recommendedPhones.map((phone, index) => (
           <li key={index}>{phone.Brand} {phone.Model} {phone.Price_PHP}</li>
         ))}
       </ul> */}
-      <main className=" flex flex-wrap gap-4">
-        {recommendedPhones.map((phone, index) => (
-          <DeviceCard id={index} brand={phone.Brand} model={phone.Model} price={phone.Price_PHP} />
-        ))}
+      <main className=" flex flex-wrap gap-4 px-6">
+        {recommendedPhones
+          .sort((a, b) => b.Price_PHP - a.Price_PHP)  // Sort in descending order based on price
+          .map((phone, index) => (
+            <DeviceCard 
+              key={index} 
+              id={index} 
+              brand={phone.Brand} 
+              model={phone.Model} 
+              price={phone.Price_PHP} 
+              img={phone.Img_Link}
+              displaySpec={phone.Display_Spec}
+              ram={phone.RAM_GB}
+              storage={phone.Storage_GB}
+              battery={phone.Battery_mAh} 
+            />
+          ))}
       </main>
     </div>
   );

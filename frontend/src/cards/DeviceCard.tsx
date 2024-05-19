@@ -2,23 +2,30 @@ interface DeviceProps {
   id: number,
   brand: string,
   model: string,
-  screen?: string,
+  displaySize?: string,
   price: number,
+  img: string,
+  displaySpec: string,
+  ram : number,
+  storage : number,
+  battery : number
 }
 
-const DeviceCard: React.FC<DeviceProps> = ({id, brand, model, price}) => {
+const DeviceCard: React.FC<DeviceProps> = ({id, brand, model, price, img, displaySpec, ram, storage, battery}) => {
   return (
-    <div className="card w-72 bg-base-100 shadow-xl overflow-hidden">
+    <div className="card w-80 bg-base-100 shadow-xl overflow-hidden">
         <div className=" flex justify-center w-full">
-        <img src="https://d1rlzxa98cyc61.cloudfront.net/catalog/product/1/7/173545_2020.jpg?auto=webp&format=pjpg&width=640" 
+        <img src={img}
           alt="Shoes"
-          className="h-40" />
+          className="h-44" />
         </div>
-        <div className="card-body">
-          <h1 className=" hidden">{id}</h1>
-            <h2 className="card-title">{`${brand} ${model}`}</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
+        <div className="card-body gap-0">
+            <h1 className=" hidden">{id}</h1>
+            <h2 className="card-title pb-2">{`${brand} ${model}`}</h2>
+            <p>{displaySpec}</p>
+            <p>{`${ram}GB RAM ${storage}GB Storage`}</p>
+            <p>{`${battery} mAh`}</p>
+            <div className="card-actions justify-end pt-4">
                 <span className="flex items-center justify-between w-full">
                     <h2>{`PHP ${price}`}</h2>
                     <button className="btn btn-primary">Buy Now</button>

@@ -1,6 +1,5 @@
-// import DeviceCard from "../cards/DeviceCard"
 import NavBar from "../components/NavBar"
-import FeaturedCard from "../cards/FeaturedCard"
+import DeviceCard from "../cards/DeviceCard"
 
 const LandingPage = () => {
     return (
@@ -32,7 +31,6 @@ const LandingPage = () => {
                         </p>
                       </div>
                       <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                        
                         <a
                           className="inline-flex h-10 items-center justify-center rounded-md border text-white border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
                           href="/home"
@@ -68,23 +66,36 @@ const LandingPage = () => {
                   </div>
                   {/* <div className="mx-auto grid max-w-5xl items-center py-12 grid-cols-4 gap-6"> */}
                   <div className="display flex justify-center p-6 gap-4">
-                    <FeaturedCard id={0} 
-                                  brand={"iPhone"} 
-                                  model={"13 Pro Max"} 
-                                  img_link={"https://cdn.shopify.com/s/files/1/0183/5769/products/Proper-web-images-2021-_0003s_0001s_0000_13ProMax-Graphite.png?v=1631856416"} 
-                                  price={70000} />
+                    <DeviceCard id={0} 
+                                brand={'iPhone'} 
+                                model={'13 Pro Max'} 
+                                price={65000} 
+                                img={'https://cdn.shopify.com/s/files/1/0183/5769/products/Proper-web-images-2021-_0003s_0001s_0000_13ProMax-Graphite.png?v=1631856416'}
+                                displaySpec={'6.7-inch Super Retina XDR display'}
+                                ram={6}
+                                storage={128}
+                                battery={4000} />
 
-                    <FeaturedCard id={0} 
-                                  brand={"Google"} 
-                                  model={"Pixel 4a"} 
-                                  img_link={"https://tse3.mm.bing.net/th?id=OIP.0SHUrLxo5YWVZVlScCx0tAAAAA&pid=Api"} 
-                                  price={15000} />
+                    <DeviceCard id={1} 
+                                brand={'Google'} 
+                                model={'Pixel 4a'} 
+                                price={15000} 
+                                img={'https://tse3.mm.bing.net/th?id=OIP.0SHUrLxo5YWVZVlScCx0tAAAAA&pid=Api'}
+                                displaySpec={'5.81-inch OLED display'}
+                                ram={6}
+                                storage={128}
+                                battery={3140} />
 
-                    <FeaturedCard id={0} 
-                                  brand={"OnePlus"} 
-                                  model={"Nord 10 5G"} 
-                                  img_link={"https://images.anandtech.com/doci/15922/1-m00-15-d2-rb8lb18cw9kapfouaawjvqw4rbo469_840_840_678x452.png"} 
-                                  price={11500} />
+                    <DeviceCard id={2} 
+                                brand={'OnePlus'} 
+                                model={'Nord N10 5G'} 
+                                price={11500} 
+                                img={'https://images.anandtech.com/doci/15922/1-m00-15-d2-rb8lb18cw9kapfouaawjvqw4rbo469_840_840_678x452.png'}
+                                displaySpec={'6.49-inch IPS LCD display'}
+                                ram={6}
+                                storage={128}
+                                battery={4300} />
+
                   </div>
               </div>
             </section>
