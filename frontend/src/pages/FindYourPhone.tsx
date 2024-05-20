@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 // import MobileCard from "../cards/MobileCard";
 import DeviceCard from "../cards/DeviceCard";
+import SkeletonCard from "../cards/SkeletonCard";
 
 interface Specs {
   Brand: string,
@@ -19,6 +20,7 @@ interface Specs {
 
 const FindYourPhone: React.FC = () => {
   const [recommendedPhones, setRecommendedPhones] = useState<Specs[]>([]);
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
   const { display, ram, storage, battery, budget } = location.state || {};
 
@@ -33,10 +35,13 @@ const FindYourPhone: React.FC = () => {
           battery,
           budget,
         });
+        setLoading(false);
         console.log('Received response from Flask:', response.data);
         setRecommendedPhones(response.data);
       } catch (error) {
         console.error('Error sending data to Flask:', error);
+        alert('Error sending data to Flask');
+        setLoading(false);
       }
     };
 
@@ -53,7 +58,14 @@ const FindYourPhone: React.FC = () => {
         ))}
       </ul> */}
       <main className=" flex flex-wrap gap-4 px-6">
-        {recommendedPhones
+        {loading? (
+          <div className='flex flex-wrap gap-6'>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))}
+          </div>  
+        ) : 
+        recommendedPhones
           .sort((a, b) => b.Price_PHP - a.Price_PHP)  // Sort in descending order based on price
           .map((phone, index) => (
             <DeviceCard 
