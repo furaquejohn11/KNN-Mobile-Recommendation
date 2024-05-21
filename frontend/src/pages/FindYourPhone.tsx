@@ -1,8 +1,7 @@
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import axios from 'axios';
-import { useState, useEffect } from "react";
-// import MobileCard from "../cards/MobileCard";
 import DeviceCard from "../cards/DeviceCard";
 import SkeletonCard from "../cards/SkeletonCard";
 
@@ -12,11 +11,10 @@ interface Specs {
   Price_PHP: number,
   Img_Link: string,
   Display_Spec: string,
-  RAM_GB : number,
-  Storage_GB : number,
-  Battery_mAh : number,
+  RAM_GB: number,
+  Storage_GB: number,
+  Battery_mAh: number,
 }
-
 
 const FindYourPhone: React.FC = () => {
   const [recommendedPhones, setRecommendedPhones] = useState<Specs[]>([]);
@@ -49,39 +47,41 @@ const FindYourPhone: React.FC = () => {
   }, [display, ram, storage, battery, budget]);
 
   return (
-    <div className=" bg-gray-100">
+    <div className="min-h-screen bg-gray-100">
       <NavBar />
-      <h2 className="px-6">{`Recommended Phones for ${display} inch, ${ram} ram, ${storage} GB, ${battery} mAh, with the budget of PHP ${budget} :`}</h2>
-      {/* <ul>
-        {recommendedPhones.map((phone, index) => (
-          <li key={index}>{phone.Brand} {phone.Model} {phone.Price_PHP}</li>
-        ))}
-      </ul> */}
-      <main className=" flex flex-wrap gap-4 px-6">
-        {loading? (
-          <div className='flex flex-wrap gap-6'>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <SkeletonCard key={index} />
-            ))}
-          </div>  
-        ) : 
-        recommendedPhones
-          .sort((a, b) => b.Price_PHP - a.Price_PHP)  // Sort in descending order based on price
-          .map((phone, index) => (
-            <DeviceCard 
-              key={index} 
-              id={index} 
-              brand={phone.Brand} 
-              model={phone.Model} 
-              price={phone.Price_PHP} 
-              img={phone.Img_Link}
-              displaySpec={phone.Display_Spec}
-              ram={phone.RAM_GB}
-              storage={phone.Storage_GB}
-              battery={phone.Battery_mAh} 
-            />
-          ))}
-      </main>
+      <div className="px-6 py-4">
+        <h2 className="text-xl font-semibold mb-4">{`Recommended Phones for ${display} inch, ${ram}GB RAM, ${storage}GB Storage, ${battery} mAh, with a budget of PHP ${budget}:`}</h2>
+        <main className="flex flex-wrap gap-4">
+          {loading ? (
+            <div className="flex flex-wrap gap-6">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <SkeletonCard key={index} />
+              ))}
+            </div>
+          ) : recommendedPhones.length === 0 ? (
+            <div>
+              <h1>There's no available phone with the given specs</h1>
+            </div>
+          ) : (
+            recommendedPhones
+              .sort((a, b) => b.Price_PHP - a.Price_PHP)  // Sort in descending order based on price
+              .map((phone, index) => (
+                <DeviceCard 
+                  key={index} 
+                  id={index} 
+                  brand={phone.Brand} 
+                  model={phone.Model} 
+                  price={phone.Price_PHP} 
+                  img={phone.Img_Link}
+                  displaySpec={phone.Display_Spec}
+                  ram={phone.RAM_GB}
+                  storage={phone.Storage_GB}
+                  battery={phone.Battery_mAh} 
+                />
+              ))
+          )}
+        </main>
+      </div>
     </div>
   );
 };

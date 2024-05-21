@@ -21,6 +21,14 @@ const NavBar = () => {
             modal.showModal();
         }
     }
+
+    const handleModalAbout = () => {
+        const modal = document.getElementById('my_modal_3');
+        if (modal && modal instanceof HTMLDialogElement) {
+            modal.showModal();
+        }
+    }   
+
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const modal = document.getElementById('my_modal_1');
@@ -41,22 +49,27 @@ const NavBar = () => {
                 <ul className="menu menu-horizontal px-1 text-lg font-semibold">
                 <li><a href="/home">View Phones</a></li>
                 <li><a onClick={handleModal}>Find Your Phone</a></li>
-                <li><a>About</a></li>
+                <li><a onClick={handleModalAbout}>About</a></li>
                 </ul>
             </div>
 
+            <dialog id="my_modal_3" className="modal">
+                <AboutModal />
+            </dialog>
+
             {/* <button className="btn" onClick={()=>document.getElementById('my_modal_1').showModal()}>open modal</button> */}
             <dialog id="my_modal_1" className="modal">
-            <div className="modal-box">
+            <div className="modal-box pt-0">
                 <div className="modal-action">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
-                        <button className=" border-none">Close</button>
+                        <button className="btn btn-sm btn-circle btn-ghost text-lg absolute right-2 top-2">✕</button>
                     </form>
                 </div>
 
-
-                <h3 className="font-bold text-lg">Phone Preference</h3>
+                
+                <h3 className="font-bold text-lg text-center">Phone Preference</h3>
+                           
                 <p className="py-4"></p>
 
 
@@ -115,7 +128,7 @@ const NavBar = () => {
                         required
                     />
                     <button type="submit" 
-                    className="btn bg-gray-900 text-white hover:bg-gray-900/90">Search</button>
+                    className="btn bg-gray-900 text-white hover:bg-gray-900/90 mt-4">Search</button>
                 </form>
                 
             </div>
@@ -125,3 +138,19 @@ const NavBar = () => {
 }
 
 export default NavBar
+
+
+const AboutModal = () => {
+    return(
+        <div className="modal-box">
+            <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn btn-sm btn-circle btn-ghost text-lg absolute right-2 top-2">✕</button>
+            </form>
+            <h3 className="font-bold text-lg">BSCS 2B Group 2 2023-2024</h3>
+            <p className="py-4">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+            <p className="py-4">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+            <p className="py-4">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+        </div>
+    );
+}

@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       })
       .catch((error) => {
         console.error('There was an error fetching the data!', error);
-        alert('There was an error fetching the data!')
+        alert('There was an error fetching the data!');
         setLoading(false);
       });
   }, []);
@@ -36,13 +36,13 @@ const Home: React.FC = () => {
   const brandList = Array.from(new Set(devices.map(phone => phone.Brand)));
 
   return (
-    <div className="grid grid-rows-[auto,auto] bg-custom-white">
+    <div className="min-h-screen bg-custom-white">
       <header>
         <NavBar />
       </header>
       
-      <main className="px-6 bg-gray-100">
-        {loading?(
+      <main className="px-6 py-8 bg-gray-100">
+        {loading ? (
           <div className='flex flex-wrap gap-6'>
             {Array.from({ length: 5 }).map((_, index) => (
               <SkeletonCard key={index} />
@@ -50,40 +50,29 @@ const Home: React.FC = () => {
           </div>     
         ) : 
           brandList.map((brand, index) => (
-            <section key={index}>
+            <section key={index} className="mb-8">
               <h2 className="mb-4 text-2xl font-semibold">{brand}</h2>
               <div className="flex flex-wrap gap-4">
                 {devices
                   .filter(phone => phone.Brand === brand)
                   .map((phone, index) => (
                     <DeviceCard 
-                                key={index}
-                                id={index} 
-                                brand={phone.Brand} 
-                                model={phone.Model} 
-                                price={phone.Price_PHP} 
-                                img={phone.Img_Link}
-                                displaySpec={phone.Display_Spec}
-                                ram={phone.RAM_GB}
-                                storage={phone.Storage_GB}
-                                battery={phone.Battery_mAh} />
+                      key={index}
+                      id={index} 
+                      brand={phone.Brand} 
+                      model={phone.Model} 
+                      price={phone.Price_PHP} 
+                      img={phone.Img_Link}
+                      displaySpec={phone.Display_Spec}
+                      ram={phone.RAM_GB}
+                      storage={phone.Storage_GB}
+                      battery={phone.Battery_mAh} 
+                    />
                   ))}
               </div>
             </section>
           ))
         }
-
-        {/* Section for devices with brands not in brandList */}
-        {/* <section>
-          <h2 className="mb-4 text-2xl font-semibold">Other Devices</h2>
-          <div className="flex flex-wrap gap-4">
-            {devices
-              .filter(phone => !brandList.includes(phone.Brand))
-              .map((phone, index) => (
-                <DeviceCard id={index} brand={phone.Brand} model={phone.Model} price={phone.Price_PHP} />
-              ))}
-          </div>
-        </section> */}
       </main>
     </div>
   );
