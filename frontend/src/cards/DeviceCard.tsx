@@ -9,9 +9,10 @@ interface DeviceProps {
   ram : number,
   storage : number,
   battery : number
+  shopLink: string,
 }
 
-const DeviceCard: React.FC<DeviceProps> = ({id, brand, model, price, img, displaySpec, ram, storage, battery}) => {
+const DeviceCard: React.FC<DeviceProps> = ({id, brand, model, price, img, displaySpec, ram, storage, battery, shopLink}) => {
   return (
     <div className="card w-80 bg-base-100 shadow-xl overflow-hidden">
         <div className=" flex justify-center w-full">
@@ -28,7 +29,7 @@ const DeviceCard: React.FC<DeviceProps> = ({id, brand, model, price, img, displa
             <div className="card-actions justify-end pt-4">
                 <span className="flex items-center justify-between w-full">
                     <h2>{`PHP ${price}`}</h2>
-                    <button className="btn btn-primary">Buy Now</button>
+                    <a href={shopLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Buy Now</a>
                 </span>
             
             </div>

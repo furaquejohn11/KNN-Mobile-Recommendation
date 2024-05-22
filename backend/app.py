@@ -25,7 +25,8 @@ def view_all_models():
                             'Display_Spec' : row['Display_Spec'],
                             'RAM_GB' : row['RAM_GB'],
                             'Storage_GB' : row['Storage_GB'],
-                            'Battery_mAh': row['Battery_mAh'] })
+                            'Battery_mAh': row['Battery_mAh'],
+                            'Shop_Link' : row['Shop_Link']})
     return results
 
 

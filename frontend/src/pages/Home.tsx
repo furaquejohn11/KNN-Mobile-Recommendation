@@ -3,17 +3,7 @@ import axios from 'axios';
 import NavBar from "../components/NavBar";
 import DeviceCard from "../cards/DeviceCard";
 import SkeletonCard from '../cards/SkeletonCard';
-
-interface Specs {
-  Brand: string,
-  Model: string,
-  Price_PHP: number,
-  Img_Link: string,
-  Display_Spec: string,
-  RAM_GB : number,
-  Storage_GB : number,
-  Battery_mAh : number,
-}
+import { Specs } from '../types/Specs';
 
 const Home: React.FC = () => {
   const [devices, setDevices] = useState<Specs[]>([]);
@@ -67,6 +57,7 @@ const Home: React.FC = () => {
                       ram={phone.RAM_GB}
                       storage={phone.Storage_GB}
                       battery={phone.Battery_mAh} 
+                      shopLink={phone.Shop_Link}
                     />
                   ))}
               </div>
