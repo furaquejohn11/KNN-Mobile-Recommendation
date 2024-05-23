@@ -4,7 +4,7 @@ import DeviceCard from "../cards/DeviceCard"
 const LandingPage = () => {
     return (
         <div>
-          <header>
+          <header className="sticky top-0 z-10">
             <NavBar />
           </header>
     
@@ -66,7 +66,7 @@ const LandingPage = () => {
                   </div>
                   {/* <div className="mx-auto grid max-w-5xl items-center py-12 grid-cols-4 gap-6"> */}
                   <div className="display flex justify-center p-6 gap-4">
-                    <DeviceCard id={0} 
+                    <DeviceCard id={0}
                                 brand={'iPhone'} 
                                 model={'13 Pro Max'} 
                                 price={65000} 
@@ -74,7 +74,8 @@ const LandingPage = () => {
                                 displaySpec={'6.7-inch Super Retina XDR display'}
                                 ram={6}
                                 storage={128}
-                                battery={4000} />
+                                battery={4000}
+                                shopLink="https://shopee.ph/iPhone-13-Pro-Max-Alpine-Green-(128GB-256GB-512GB-1TB)-i.350609763.16641381578?sp_atk=20c424d9-c4bf-411d-aa32-e6e5f5f44070" />
 
                     <DeviceCard id={1} 
                                 brand={'Google'} 
@@ -84,7 +85,8 @@ const LandingPage = () => {
                                 displaySpec={'5.81-inch OLED display'}
                                 ram={6}
                                 storage={128}
-                                battery={3140} />
+                                battery={3140}
+                                shopLink="https://shopee.ph/Google-Pixel-4a-4G-5G-LTE-Original-Mobile-Phone-6GB-128GB-12.2MP-Snapdragon-730G-Octa-Core-CellPhone-Andorid-10-LTE-SmartPhone-Used-95-new-i.803836192.24073842260?sp_atk=f4f20b20-258c-4d72-ad7e-6880432d54f8&xptdk=f4f20b20-258c-4d72-ad7e-6880432d54f8" />
 
                     <DeviceCard id={2} 
                                 brand={'OnePlus'} 
@@ -94,7 +96,8 @@ const LandingPage = () => {
                                 displaySpec={'6.49-inch IPS LCD display'}
                                 ram={6}
                                 storage={128}
-                                battery={4300} />
+                                battery={4300}
+                                shopLink="https://www.amazon.com/OnePlus-Unlocked-Smartphone-Midnight-BE2026/dp/B08R7D4KZJ" />
 
                   </div>
               </div>

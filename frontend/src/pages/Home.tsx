@@ -27,8 +27,8 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-custom-white">
-      <header>
-        <NavBar />
+      <header className="sticky top-0 z-10">
+          <NavBar />
       </header>
       
       <main className="px-6 py-8 bg-gray-100">

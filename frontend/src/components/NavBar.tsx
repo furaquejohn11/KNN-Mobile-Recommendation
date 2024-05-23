@@ -78,7 +78,7 @@ const NavBar = () => {
                     <input
                         className="border rounded-lg py-2 px-4 w-full"
                         id="camera"
-                        placeholder="Enter camera megapixels"
+                        placeholder="Enter Display in Inch"
                         type="number"
                         value={display}
                         onChange={(e) => setDisplay(e.target.value)}

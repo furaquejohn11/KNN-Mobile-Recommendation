@@ -38,7 +38,9 @@ const FindYourPhone: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <NavBar />
+      <header className="sticky top-0 z-10">
+            <NavBar />
+      </header>
       <div className="px-6 py-4">
         <h2 className="text-xl font-semibold mb-4">{`Recommended Phones for ${display} inch, ${ram}GB RAM, ${storage}GB Storage, ${battery} mAh, with a budget of PHP ${budget}:`}</h2>
         <main className="flex flex-wrap gap-4">
