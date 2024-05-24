@@ -21,7 +21,7 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 # Initialize the NearestNeighbors model
-neigh = NearestNeighbors(n_neighbors=5)
+neigh = NearestNeighbors(n_neighbors=7)
 neigh.fit(X_train)
 
 # Function to recommend phones based on user input
