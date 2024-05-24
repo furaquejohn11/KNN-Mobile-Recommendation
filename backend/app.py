@@ -41,7 +41,7 @@ def find_phone():
  
     specs = [display, ram, storage, battery, budget]
     recommended_phones = recommend_phones(specs)
-    print(recommended_phones.to_dict(orient='records'))
+    # print(recommended_phones.to_dict(orient='records'))
     return jsonify(recommended_phones.to_dict(orient='records'))
 
 if __name__ == '__main__':
