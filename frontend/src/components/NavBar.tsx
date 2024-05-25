@@ -1,4 +1,4 @@
-import { MdOutlinePhoneIphone } from "react-icons/md"
+// import { MdOutlinePhoneIphone } from "react-icons/md"
 import { useNavigate } from "react-router-dom";
 import ModalAbout from "./ModalAbout";
 import ModalFindYourPhone from "./ModalFindYourPhone";
@@ -25,9 +25,10 @@ const NavBar = () => {
   };
 
   return (
-    <header className="navbar bg-base-100">
+    <header className="navbar bg-base-100 py-2">
       <div className="flex-1 text-2xl ml-4">
-        <MdOutlinePhoneIphone onClick={handleClick} />
+        <img src="dletech-favicon-black.png" className="size-16" onClick={handleClick}/>
+        <img src="dletech-text.png" className="h-8" />
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 text-lg font-semibold">

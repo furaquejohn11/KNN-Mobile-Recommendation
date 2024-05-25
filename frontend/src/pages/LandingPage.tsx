@@ -1,12 +1,22 @@
 import NavBar from "../components/NavBar"
 import DeviceCard from "../cards/DeviceCard"
+import ModalFindYourPhone from "../components/ModalFindYourPhone"
 
 const LandingPage = () => {
+  
+    const handleModalFindYourPhone = () => {
+      const modal = document.getElementById('my_modal_1');
+      if (modal && modal instanceof HTMLDialogElement) {
+        modal.showModal();
+      }
+    };
+
     return (
         <div>
           <header className="sticky top-0 z-10">
             <NavBar />
           </header>
+          <ModalFindYourPhone />
     
           <main className="flex-1">
             {/* First Section */}
@@ -37,12 +47,12 @@ const LandingPage = () => {
                         >
                           View Phones
                         </a>
-                        {/* <a
+                        <button
                           className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                          href="#"
+                          onClick={handleModalFindYourPhone}
                         >
                           Find Your Phone
-                        </a> */}
+                        </button>
                       </div>
                     </div>
                   </div>
