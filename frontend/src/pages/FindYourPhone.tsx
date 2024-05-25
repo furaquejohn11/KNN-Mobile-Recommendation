@@ -69,7 +69,8 @@ const FindYourPhone: React.FC = () => {
                   ram={phone.RAM_GB}
                   storage={phone.Storage_GB}
                   battery={phone.Battery_mAh} 
-                  shopLink={phone.Shop_Link  || 'N/A'}
+                  shopLink={phone.Shop_Link}
+                  processor={phone.Processor}
                 />
               ))
           )}

@@ -8,4 +8,5 @@ export interface Specs {
     Storage_GB: number,
     Battery_mAh: number,
     Shop_Link: string,
+    Processor: string,
   }

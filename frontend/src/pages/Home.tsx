@@ -58,6 +58,7 @@ const Home: React.FC = () => {
                       storage={phone.Storage_GB}
                       battery={phone.Battery_mAh} 
                       shopLink={phone.Shop_Link}
+                      processor={phone.Processor}
                     />
                   ))}
               </div>

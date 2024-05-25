@@ -26,7 +26,8 @@ def view_all_models():
                             'RAM_GB' : row['RAM_GB'],
                             'Storage_GB' : row['Storage_GB'],
                             'Battery_mAh': row['Battery_mAh'],
-                            'Shop_Link' : row['Shop_Link']})
+                            'Shop_Link' : row['Shop_Link'],
+                            'Processor' : row['Processor']})
     return results
 
 

@@ -1,18 +1,19 @@
 interface DeviceProps {
-  id: number,
-  brand: string,
-  model: string,
-  displaySize?: string,
-  price: number,
-  img: string,
-  displaySpec: string,
-  ram : number,
-  storage : number,
-  battery : number
-  shopLink: string,
+  id: number;
+  brand: string;
+  model: string;
+  displaySize?: string;
+  price: number;
+  img: string;
+  displaySpec: string;
+  ram : number;
+  storage : number;
+  battery : number;
+  shopLink: string;
+  processor: string;
 }
 
-const DeviceCard: React.FC<DeviceProps> = ({id, brand, model, price, img, displaySpec, ram, storage, battery, shopLink}) => {
+const DeviceCard: React.FC<DeviceProps> = ({id, brand, model, price, img, displaySpec, ram, storage, battery, shopLink, processor}) => {
   return (
     <div className="card w-80 bg-base-100 shadow-xl overflow-hidden">
         <div className=" flex justify-center w-full">
@@ -26,6 +27,7 @@ const DeviceCard: React.FC<DeviceProps> = ({id, brand, model, price, img, displa
             <p>{displaySpec}</p>
             <p>{`${ram}GB RAM ${storage}GB Storage`}</p>
             <p>{`${battery} mAh`}</p>
+            <p>{processor}</p>
             <div className="card-actions justify-end pt-4">
                 <span className="flex items-center justify-between w-full">
                     <h2>{`PHP ${price}`}</h2>

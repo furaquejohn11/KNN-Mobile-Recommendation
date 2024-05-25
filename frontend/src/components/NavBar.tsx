@@ -28,7 +28,7 @@ const NavBar = () => {
     <header className="navbar bg-base-100 py-2">
       <div className="flex-1 text-2xl ml-4">
         <img src="dletech-favicon-black.png" className="size-16" onClick={handleClick}/>
-        <img src="dletech-text.png" className="h-8" />
+        <img src="dletech-text.png" className="h-7" onClick={handleClick} />
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 text-lg font-semibold">
