@@ -42,7 +42,7 @@ const FindYourPhone: React.FC = () => {
             <NavBar />
       </header>
       <div className="px-6 py-4">
-        <h2 className="text-xl font-semibold mb-4">{`Recommended Phones for ${display} inch, ${ram}GB RAM, ${storage}GB Storage, ${battery} mAh, with a budget of PHP ${budget}:`}</h2>
+        <h2 className="text-xl font-semibold mb-4">{`Recommended Phones for ${display}-inch Display, ${ram}GB RAM, ${storage}GB Storage, ${battery} mAh, with a budget of PHP ${budget}:`}</h2>
         <main className="flex flex-wrap gap-4">
           {loading ? (
             <div className="flex flex-wrap gap-6">

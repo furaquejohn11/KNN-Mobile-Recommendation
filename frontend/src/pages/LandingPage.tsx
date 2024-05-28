@@ -42,7 +42,7 @@ const LandingPage = () => {
                       </div>
                       <div className="flex flex-col gap-2 min-[400px]:flex-row">
                         <a
-                          className="inline-flex h-10 items-center justify-center rounded-md border text-white border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+                          className="inline-flex h-10 items-center justify-center rounded-md border text-white border-gray-200 bg-gray-950 px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
                           href="/home"
                         >
                           View Phones
@@ -85,7 +85,10 @@ const LandingPage = () => {
                                 ram={6}
                                 storage={128}
                                 battery={4000}
-                                shopLink="https://shopee.ph/iPhone-13-Pro-Max-Alpine-Green-(128GB-256GB-512GB-1TB)-i.350609763.16641381578?sp_atk=20c424d9-c4bf-411d-aa32-e6e5f5f44070" />
+                                shopLink="https://shopee.ph/iPhone-13-Pro-Max-Alpine-Green-(128GB-256GB-512GB-1TB)-i.350609763.16641381578?sp_atk=20c424d9-c4bf-411d-aa32-e6e5f5f44070" 
+                                processor="Apple A15 Bionic"
+                                />
+                                
 
                     <DeviceCard id={1} 
                                 brand={'Google'} 
@@ -96,7 +99,9 @@ const LandingPage = () => {
                                 ram={6}
                                 storage={128}
                                 battery={3140}
-                                shopLink="https://shopee.ph/Google-Pixel-4a-4G-5G-LTE-Original-Mobile-Phone-6GB-128GB-12.2MP-Snapdragon-730G-Octa-Core-CellPhone-Andorid-10-LTE-SmartPhone-Used-95-new-i.803836192.24073842260?sp_atk=f4f20b20-258c-4d72-ad7e-6880432d54f8&xptdk=f4f20b20-258c-4d72-ad7e-6880432d54f8" />
+                                shopLink="https://shopee.ph/Google-Pixel-4a-4G-5G-LTE-Original-Mobile-Phone-6GB-128GB-12.2MP-Snapdragon-730G-Octa-Core-CellPhone-Andorid-10-LTE-SmartPhone-Used-95-new-i.803836192.24073842260?sp_atk=f4f20b20-258c-4d72-ad7e-6880432d54f8&xptdk=f4f20b20-258c-4d72-ad7e-6880432d54f8" 
+                                processor="Qualcomm Snapdragon 730G"
+                                />
 
                     <DeviceCard id={2} 
                                 brand={'OnePlus'} 
@@ -107,7 +112,9 @@ const LandingPage = () => {
                                 ram={6}
                                 storage={128}
                                 battery={4300}
-                                shopLink="https://www.amazon.com/OnePlus-Unlocked-Smartphone-Midnight-BE2026/dp/B08R7D4KZJ" />
+                                shopLink="https://www.amazon.com/OnePlus-Unlocked-Smartphone-Midnight-BE2026/dp/B08R7D4KZJ" 
+                                processor="Qualcomm Snapdragon 690 5G"
+                                />
 
                   </div>
               </div>

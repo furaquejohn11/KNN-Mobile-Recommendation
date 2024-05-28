@@ -31,7 +31,7 @@ const Home: React.FC = () => {
           <NavBar />
       </header>
       
-      <main className="px-6 py-8 bg-gray-100">
+      <main className="px-6 py-4 bg-gray-100">
         {loading ? (
           <div className='flex flex-wrap gap-6'>
             {Array.from({ length: 5 }).map((_, index) => (
