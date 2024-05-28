@@ -35,10 +35,10 @@ def view_all_models():
 def find_phone():
     data = request.get_json()
     display = float(data.get('display'))
-    ram = int(data.get('ram'))
-    storage = int(data.get('storage'))
-    battery = int(data.get('battery'))
-    budget = int(data.get('budget'))
+    ram = float(data.get('ram'))
+    storage = float(data.get('storage'))
+    battery = float(data.get('battery'))
+    budget = float(data.get('budget'))
  
     specs = [display, ram, storage, battery, budget]
     recommended_phones = recommend_phones(specs)

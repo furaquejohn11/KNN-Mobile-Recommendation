@@ -31,7 +31,7 @@ def recommend_phones(user_api_input):
 
     if not (0.5 <= display_size <= 10 and 1 <= ram <= 16 and 
             8 <= storage <= 512 and 1000 <= battery <= 10000 
-            and 1000 <= budget <= 100000):
+            and 1000 <= budget <= 120000):
         print("Invalid input specifications. Please enter reasonable values.")
         return pd.DataFrame()
 
